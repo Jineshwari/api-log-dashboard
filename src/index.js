@@ -22,6 +22,8 @@ const { MONGO_URI, PORT = 4000 } = process.env;
 mongoose.connect(MONGO_URI)
   .then(() => {
     console.log("✅ Mongo connected");
-    app.listen(PORT, () => console.log(`🚀 API at http://localhost:${PORT}`));
+    app.listen(PORT, "0.0.0.0", () =>
+      console.log(`🚀 API running on port ${PORT}`)
+    );
   })
   .catch(err => console.error("❌ Mongo error:", err));
